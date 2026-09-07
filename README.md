@@ -15,21 +15,13 @@ Pomocí skriptu (0_Úvodní_zjišťování.sql) jsem prostudovala postupně ní�
 | Tabulka | Obsah |
 |---|---|
 | `czechia_payroll` | Mzdy podle odvětví, čtvrtletně, 2000–2021, za celou ČR |
-|---|---|
 | `czechia_payroll_calculation` | Číselník: fyzický (100) / přepočtený (200) počet |
-|---|---|
 | `czechia_payroll_industry_branch` | Číselník odvětví |
-|---|---|
 | `czechia_payroll_unit` | Číselník jednotek (viz zjištěná anomálie níže) |
-|---|---|
 | `czechia_payroll_value_type` | Číselník typů hodnot (316 = počet zaměstnanců, 5958 = průměrná hrubá mzda) |
-|---|---|
 | `czechia_price` | Ceny vybraných potravin, týdenně, po krajích i za ČR celkem |
-|---|---|
 | `czechia_price_category` | Číselník kategorií potravin |
-|---|---|
 | `countries` | Údaje o zemích světa (mj. kontinent) |
-|---|---|
 | `economies` | HDP, GINI, populace aj. podle státu a roku |
 
 2.2 Určení srovnatelného období

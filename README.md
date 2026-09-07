@@ -9,6 +9,7 @@ Cílem projektu je připravit datové podklady pro tiskové oddělení, které p
 Výstupem projektu jsou dvě databázové tabulky (t_jana_hrabkova_project_SQL_primary_final, t_jana_hrabkova_project_sql_secondary_final) a sada SQL dotazů odpovídajících na pět výzkumných otázek.
 
 **2. Zdrojová data**
+
 Pomocí skriptu (0_Úvodní_zjišťování.sql) jsem prostudovala postupně níže uvedené tabulky. Jednalo se tak o prvotní se seznámení s obsahem jednotlivých tabulek.
 
 ***2.1 Použité tabulky***

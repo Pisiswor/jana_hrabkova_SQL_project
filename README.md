@@ -14,7 +14,7 @@ Výstupem projektu jsou dvě databázové tabulky (t_jana_hrabkova_project_SQL_p
 
 Pomocí skriptu (0_Úvodní_zjišťování.sql) jsem prostudovala postupně níže uvedené tabulky. Jednalo se tak o prvotní se seznámení s obsahem jednotlivých tabulek.
 
-***2.1 Použité tabulky***
+*2.1 Použité tabulky*
 | Tabulka | Obsah |
 |---|---|
 | `czechia_payroll` | Mzdy podle odvětví, čtvrtletně, 2000–2021, za celou ČR |

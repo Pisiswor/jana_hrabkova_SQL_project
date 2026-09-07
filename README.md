@@ -2,11 +2,13 @@
 
 Projekt zpracovaný pro analytické oddělení – SQL analýza dat o mzdách, cenách potravin a makroekonomických ukazatelích.
 
+
 **1. Úvod a cíl projektu**
 
 Cílem projektu je připravit datové podklady pro tiskové oddělení, které porovnávají dostupnost základních potravin (chléb, mléko) na základě průměrných příjmů v České republice za období, kdy jsou k dispozici srovnatelná data o mzdách i cenách. Jako doplňkový materiál je připravena tabulka s HDP, GINI koeficientem a populací evropských států za stejné období.
 
 Výstupem projektu jsou dvě databázové tabulky (t_jana_hrabkova_project_SQL_primary_final, t_jana_hrabkova_project_sql_secondary_final) a sada SQL dotazů odpovídajících na pět výzkumných otázek.
+
 
 **2. Zdrojová data**
 
@@ -26,6 +28,10 @@ Pomocí skriptu (0_Úvodní_zjišťování.sql) jsem prostudovala postupně ní�
 | `economies` | HDP, GINI, populace aj. podle státu a roku |
 
 2.2 Určení srovnatelného období
+
+Tabulka `czechia_payroll` obsahuje data dostupná za roky 2000 až 2021. Hodnoty jsou čtvrtletní, z toho důvodu jsem agregovala na na roční průměr.
+Tabulka `czechia_price` obsahuje data za celou ČR (považuji za tyto hodnoty výskyt `region_code IS NULL`) dostupná za roky 2006–2018. Hodnoty jsou uvedeny jako týdenní záznamy i zde jsem agregovala na roční průměr.
+Do primární tabulky jsem použila **průnik obou datových sad, a tedy období 2006 až 2018.**
 
 2.3 Klíčová rozhodnutí o filtrování dat
 

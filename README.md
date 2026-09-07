@@ -52,3 +52,37 @@ Ověřeno porovnáním rozsahu skutečných hodnot (`Value`) – mzda vychází 
 Závěr: `unit_code` u zdrojových dat považuji za nespolehlivý. Pro finální tabulku jsem jednotku (Kč) přiřadila napevno na základě `value_type_code`, nepřebírala jsem ji z `unit_code`.
 
 V tabulce `economies` je překlep v názvu sloupce pro vyjádření **mortality (`mortaliy_under5`)**. Do aktuálně zpracovávaného projektu tento sloupeček není využit, takže jsem problém nebyla nucena řešit. Pokud bych jej měla použít, řešila bych buď "zapamatováním si názvu sloupce tak, jak je v databázi uveden" nebo bych požádala o opravu názvu sloupce ve zdrojové databázi. 
+
+
+**3. Finální tabulky**
+
+*3.1 `t_jana_hrabkova_project_sql_primary_final`*
+
+Struktura (dlouhý formát):
+| Sloupec | Popis |
+|---|---|
+| `year` | Rok (2006–2018) |
+| `metric_type` | `'wage'` (mzda) nebo `'price'` (cena potraviny) |
+| `category` | Název odvětví (u mezd) nebo potraviny (u cen); `'Celá ekonomika'` pro celostátní mzdu |
+| `value` | Roční průměrná hodnota (Kč) |
+| `unit` | Jednotka (Kč), přiřazena napevno – viz 2.4 |
+
+Tabulku jsem vytvořila spojením agregovaných mezd (roční průměr ze 4 čtvrtletí, `LEFT JOIN` na číselník odvětví s `COALESCE` pro souhrnný řádek) a agregovaných cen potravin (roční průměr z týdenních dat, `JOIN` na číselník kategorií) přes `UNION ALL`.
+
+Poznámka: Tabulka obsahuje čitelné názvy kategorií (ne číselné kódy) pro přímou použitelnost výstupu tiskovým oddělením. Číselné kódy jsem do tabulky nezahrnula – jednalo se o vědomé rozhodnutí ve prospěch čitelnosti. Nicméně pro vyvarování se případných jazykových mutací by bylo vhodnější číselné kódy uvést a ve filtrování používat raději ty.
+
+*3.2 `t_jana_hrabkova_project_sql_secondary_final`*
+
+Struktura (široký formát):
+| Sloupec | Popis |
+|---|---|
+| `country` | Název evropského státu |
+| `year` | Rok (2006–2018) |
+| `gdp` | HDP |
+| `gini` | GINI koeficient |
+| `population` | Populace |
+
+Tabulku jsem vytvořila spojením tabulek `economies` a `countries` (filtr `continent = 'Europe'`), čímž byly zároveň automaticky odfiltrovány souhrnné/regionální položky přítomné v `economies.country` (např. „European Union“, „Europe & Central Asia“), které nemají odpovídající záznam v `countries`.
+
+
+

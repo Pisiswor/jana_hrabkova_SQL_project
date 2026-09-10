@@ -159,10 +159,20 @@ Tabulku jsem vytvořila spojením tabulek `economies` a `countries` (filtr `cont
 
 **Poznámka:** Při analýze vycházím pouze ze 12–13 ročních pozorování, což je pro spolehlivý statistický závěr málo. Korelační koeficienty je třeba chápat jako orientační náznak, nikoli jako průkazný důkaz příčinné souvislosti.
 
+**Závěr:** Data naznačují mírnou až středně silnou souvislost mezi HDP a mzdami (silnější s ročním zpožděním) a slabší, méně jednoznačnou souvislost mezi HDP a cenami potravin (silnější bez zpoždění). Vzhledem k malému vzorku dat doporučujeme závěr prezentovat s touto výhradou.
+
 
 ## 5. Shrnutí pro tiskové oddělení
 
-[DOPLNIT – 3–5 vět shrnujících nejdůležitější zjištění napříč všemi otázkami, srozumitelně pro laickou veřejnost]
+Analýza mezd a cen základních potravin v České republice v období 2006–2018 ukazuje smíšený obrázek vývoje životní úrovně. **Mzdy** ve sledovaném období rostly ve většině odvětví, v 16 z 19 odvětví však došlo alespoň jednou k meziročnímu poklesu – jde zejména o odvětví "Těžba a dobývání" či "Výroba a rozvod elektřiny, plynu, tepla a klimatiz. vzduchu". To ukazuje, že růst mezd nebyl napříč ekonomikou rovnoměrný ani nepřerušovaný.
+
+**Dostupnost základních potravin** se za sledované období zlepšila – zatímco v roce 2006 si domácnost za průměrnou mzdu mohla dovolit koupit 1211,66 kg chleba a 1353,10 litrů mléka, v roce 2018 to bylo 1322 kg chleba a 1616,77 litrů mléka.
+
+Mezi jednotlivými kategoriemi potravin jsou v tempu zdražování výrazné rozdíly – nejpomaleji zdražovala kategorie "Banány žluté", zatímco nejrychleji kategorie "Papriky".
+
+Nenašli jsme roky, kdy by ceny potravin meziročně vzrostly o více než 10 procentních bodů rychleji než mzdy – nejblíže této situaci byl rok 2007 (ceny potravin +9,26 %, mzdy +7,22 %). Při mírnější definici „výrazně vyššího růstu" (o desetinu relativně vyšší, nikoli o 10 procentních bodů) bychom takových let našli více (2007, 2008, 2011, 2012, s výhradou 2013).
+
+Data naznačují, že vývoj mezd v ČR souvisí s vývojem hrubého domácího produktu (HDP), přičemž tato souvislost je patrnější s ročním zpožděním – mzdy zřejmě reagují na hospodářský růst z předchozího roku, ne okamžitě. U cen potravin je vazba na HDP slabší a projevuje se spíše ve stejném roce. Vzhledem k relativně malému vzorku dat (13 let) doporučuji tato zjištění prezentovat jako orientační trend, nikoli jako prokázanou příčinnou souvislost.
 
 
 ## 6. Poznámky k datům a omezením
@@ -181,9 +191,3 @@ Tabulku jsem vytvořila spojením tabulek `economies` a `countries` (filtr `cont
 - `Secondary_tab_final.sql`: vytvoření sekundární finální tabulky `t_jana_hrabkova_project_sql_secondary_final`
 - `Otazka_1.sql` - `Otazka_5.sql`: SQL dotazy patřící ke konkrétní výzkumné otázce; součástí skriptu je vytvoření případného view
 - `JH_readme.md` – tento dokument
-
-[DOPLNIT – uprav podle skutečných názvů souborů, které do repozitáře nahraješ]
-
-
-
-**Závěr:** Data naznačují mírnou až středně silnou souvislost mezi HDP a mzdami (silnější s ročním zpožděním) a slabší, méně jednoznačnou souvislost mezi HDP a cenami potravin (silnější bez zpoždění). Vzhledem k malému vzorku dat doporučujeme závěr prezentovat s touto výhradou.

@@ -111,5 +111,18 @@ Tabulku jsem vytvořila spojením tabulek `economies` a `countries` (filtr `cont
 **Závěr:** Z tabulky je zřejmé, že v roce 2018 jsme si mohli koupit o 110,34 kg více chleba (přibližně o 9 %) a o 263,67 l více mléka (přibližně o 19 %) než v roce 2006, přestože cena obou komodit vzrostla. Nárůst ceny potravin byl v porovnání s růstem mezd nižší. Mzda vzrostla o přibližně 64 %, zatímco cena chleba o 50 % a cena mléka o 37 %.  
 
 
+*Otázka 3: Která kategorie potravin zdražuje nejpomaleji (je u ní nejnižší percentuální meziroční nárůst)?*
+
+**Postup:** Pro každou kategorii potravin jsem spočítala průměr meziročních procentuálních změn ceny přes celé období 2006–2018.
+
+**Poznámka:** Kategorie s nejnižším průměrem meziroční změny obsahovala jak roky s růstem, tak s poklesem ceny (cena do r. 2010 klesala, 2011–2013 rostla, 2014–2016 klesala, 2017 vzrostla, 2018 klesla) – jde tedy o kolísavý, nikoli stabilně pomalu rostoucí cenový vývoj. Vzhledem k doslovnému znění otázky („nejnižší nárůst“) jsem zvažovala omezení výběru jen na kategorie s kladným průměrem meziroční změny (tj. skutečně zdražující kategorie), aby nevyhrála kategorie, která ve výsledku spíše zlevňuje.
+
+**Výsledek (všechny kategorie):** Pokud vybírám kategorii s nejpomaleji rostoucí cenou bez jakéhokoliv dalšího omezení, výsledkem je "Cukr krystalový", kdy percentuální meziroční nárůst je ve skutečnosti pokles. 
+
+**Výsledek (pouze kategorie s kladným průměrným meziročním nárůstem):** Výsledkem při omezení se pouze na kategorie s kladným průměrným meziročním nárůstem cen je kategorie "Banány žluté". 
+
+**Závěr:** U obou výsledných kategorií jsem dále zkoumala směr vývoje cen v jednotlivých letech. Z mého pohledu není možné striktně hovořit o trendu zdražování/zlevňování. Ve sledovaném období jsou ceny rozkolísané oběma směry což ovlivňuje průměrnou hodnotu. Výsledné kategorie jsou dle mého názoru výstupem čistě matematickým. Pro přesnější výsledek by bylo vhodné porovnávat trend v čase.
+
+
 
 Mz

@@ -122,7 +122,3 @@ Tabulku jsem vytvořila spojením tabulek `economies` a `countries` (filtr `cont
 **Výsledek (pouze kategorie s kladným průměrným meziročním nárůstem):** Výsledkem při omezení se pouze na kategorie s kladným průměrným meziročním nárůstem cen je kategorie "Banány žluté". 
 
 **Závěr:** U obou výsledných kategorií jsem dále zkoumala směr vývoje cen v jednotlivých letech. Z mého pohledu není možné striktně hovořit o trendu zdražování/zlevňování. Ve sledovaném období jsou ceny rozkolísané oběma směry což ovlivňuje průměrnou hodnotu. Výsledné kategorie jsou dle mého názoru výstupem čistě matematickým. Pro přesnější výsledek by bylo vhodné porovnávat trend v čase.
-
-
-
-Mz

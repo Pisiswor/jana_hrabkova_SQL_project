@@ -1,20 +1,20 @@
-**Dostupnost základních potravin ve vztahu ke mzdám v ČR**
+# Dostupnost základních potravin ve vztahu ke mzdám v ČR
 
 Projekt zpracovaný pro analytické oddělení – SQL analýza dat o mzdách, cenách potravin a makroekonomických ukazatelích.
 
 
-**1. Úvod a cíl projektu**
+## 1. Úvod a cíl projektu
 
 Cílem projektu je připravit datové podklady pro tiskové oddělení, které porovnávají dostupnost základních potravin (chléb, mléko) na základě průměrných příjmů v České republice za období, kdy jsou k dispozici srovnatelná data o mzdách i cenách. Jako doplňkový materiál je připravena tabulka s HDP, GINI koeficientem a populací evropských států za stejné období.
 
 Výstupem projektu jsou dvě databázové tabulky (t_jana_hrabkova_project_SQL_primary_final, t_jana_hrabkova_project_sql_secondary_final) a sada SQL dotazů odpovídajících na pět výzkumných otázek.
 
 
-**2. Zdrojová data**
+## 2. Zdrojová data
 
 Pomocí skriptu (0_Úvodní_zjišťování.sql) jsem prostudovala postupně níže uvedené tabulky. Jednalo se tak o prvotní se seznámení s obsahem jednotlivých tabulek.
 
-*2.1 Použité tabulky*
+### *2.1 Použité tabulky*
 | Tabulka | Obsah |
 |---|---|
 | `czechia_payroll` | Mzdy podle odvětví, čtvrtletně, 2000–2021, za celou ČR |
@@ -27,19 +27,19 @@ Pomocí skriptu (0_Úvodní_zjišťování.sql) jsem prostudovala postupně ní�
 | `countries` | Údaje o zemích světa (mj. kontinent) |
 | `economies` | HDP, GINI, populace aj. podle státu a roku |
 
-*2.2 Určení srovnatelného období*
+### *2.2 Určení srovnatelného období*
 
 Tabulka `czechia_payroll` obsahuje data dostupná za roky 2000 až 2021. Hodnoty jsou čtvrtletní, z toho důvodu jsem agregovala na na roční průměr.
 Tabulka `czechia_price` obsahuje data za celou ČR (považuji za tyto hodnoty výskyt `region_code IS NULL`) dostupná za roky 2006–2018. Hodnoty jsou uvedeny jako týdenní záznamy i zde jsem agregovala na roční průměr.
 Do primární tabulky jsem použila **průnik obou datových sad, a tedy období 2006 až 2018.**
 
-*2.3 Klíčová rozhodnutí o filtrování dat*
+### *2.3 Klíčová rozhodnutí o filtrování dat*
 
 U mezd jsem použila `value_type_code = 5958` (Průměrná hrubá mzda) a `calculation_code = 200` (přepočtený počet). Dle mého se jedná o standardní a nejběžněji používanou metriku.
 U cen jsem použila pouze řádky s `region_code IS NULL`, tedy hodnoty za celou ČR – abych zachovala stejnou úroveň agregace jako u mezd (které jsou dostupné jen za celou ČR).
 Vedle rozpadu mezd po jednotlivých odvětvích jsem do primární tabulky zahrnula i souhrnný řádek s `industry_branch_code IS NULL`, označený jako kategorie **„Celá ekonomika“** – ověřeno, že jde o (vážený) celostátní průměr mzdy, ne o chybějící/neplatná data (viz ověření v sekci 2.4). Tento řádek je nezbytný pro výzkumné otázky 2, 4 a 5, které pracují s celostátní mzdou, nikoli s mzdou po odvětvích.
 
-*2.4 Zjištěná datová anomálie*
+### *2.4 Zjištěná datová anomálie*
 
 V tabulce `czechia_payroll` je **`unit_code` u hodnot typu mzda (5958) a počet zaměstnanců (316) prohozený** oproti definici v číselníku `czechia_payroll_unit`:
 
@@ -54,9 +54,9 @@ Závěr: `unit_code` u zdrojových dat považuji za nespolehlivý. Pro finální
 V tabulce `economies` je překlep v názvu sloupce pro vyjádření **mortality (`mortaliy_under5`)**. Do aktuálně zpracovávaného projektu tento sloupeček není využit, takže jsem problém nebyla nucena řešit. Pokud bych jej měla použít, řešila bych buď "zapamatováním si názvu sloupce tak, jak je v databázi uveden" nebo bych požádala o opravu názvu sloupce ve zdrojové databázi. 
 
 
-**3. Finální tabulky**
+## 3. Finální tabulky
 
-*3.1 `t_jana_hrabkova_project_sql_primary_final`*
+### *3.1 `t_jana_hrabkova_project_sql_primary_final`*
 
 Struktura (dlouhý formát):
 | Sloupec | Popis |
@@ -71,7 +71,7 @@ Tabulku jsem vytvořila spojením agregovaných mezd (roční průměr ze 4 čtv
 
 Poznámka: Tabulka obsahuje čitelné názvy kategorií (ne číselné kódy) pro přímou použitelnost výstupu tiskovým oddělením. Číselné kódy jsem do tabulky nezahrnula – jednalo se o vědomé rozhodnutí ve prospěch čitelnosti. Nicméně pro vyvarování se případných jazykových mutací by bylo vhodnější číselné kódy uvést a ve filtrování používat raději ty.
 
-*3.2 `t_jana_hrabkova_project_sql_secondary_final`*
+### *3.2 `t_jana_hrabkova_project_sql_secondary_final`*
 
 Struktura (široký formát):
 | Sloupec | Popis |
@@ -84,12 +84,12 @@ Struktura (široký formát):
 
 Tabulku jsem vytvořila spojením tabulek `economies` a `countries` (filtr `continent = 'Europe'`), čímž byly zároveň automaticky odfiltrovány souhrnné/regionální položky přítomné v `economies.country` (např. „European Union“, „Europe & Central Asia“), které nemají odpovídající záznam v `countries`.
 
-**4. Odpovědi na výzkumné otázky** 
+## 4. Odpovědi na výzkumné otázky
 
 *Poznámka:* Meziroční procentuální změny jsem se snažila ve všech otázkách počítat pomocí okenní funkce `LAG()`, vzorcem `(aktuální − předchozí) / předchozí × 100`. Dělení nulou jsem ošetřila pomocí `NULLIF`.
 
 
-*Otázka 1: Rostou v průběhu let mzdy ve všech odvětvích, nebo v některých klesají?*
+### *Otázka 1: Rostou v průběhu let mzdy ve všech odvětvích, nebo v některých klesají?*
 
 **Postup:** Pro každé odvětví jsem spočítala meziroční změnu mzdy za všechny dostupné roky (2006–2018); dále jsem zjišťovala, ve kterých odvětvích se vyskytl alespoň jeden rok s meziročním poklesem.
 
@@ -98,7 +98,7 @@ Tabulku jsem vytvořila spojením tabulek `economies` a `countries` (filtr `cont
 **Závěr:** Lze říci, že mzdy ve všech odvětvích v průběhu let rostou. Výkyvy v určitých letech, kdy mzdy naopak meziročně klesly by bylo zajímavé prozkoumat z širšího pohledu - co se ten rok u nás/ve světě dělo (hospodářská krize, válka, volby, ....). 
 
 
-*Otázka 2: Kolik je možné si koupit litrů mléka a kilogramů chleba za první a poslední srovnatelné období v dostupných datech cen a mezd?*
+### *Otázka 2: Kolik je možné si koupit litrů mléka a kilogramů chleba za první a poslední srovnatelné období v dostupných datech cen a mezd?*
 
 **Postup:** Porovnávala jsem roky 2006 a 2018, které byly společné pro ceny i mzdy jako krajní hodnoty. Celostátní průměrnou mzdu (kategorie „Celá ekonomika“) jsem vydělila cenou chleba (Chléb konzumní kmínový) a cenou mléka (Mléko polotučné pasterované) za daný rok.
 
@@ -111,7 +111,7 @@ Tabulku jsem vytvořila spojením tabulek `economies` a `countries` (filtr `cont
 **Závěr:** Z tabulky je zřejmé, že v roce 2018 jsme si mohli koupit o 110,34 kg více chleba (přibližně o 9 %) a o 263,67 l více mléka (přibližně o 19 %) než v roce 2006, přestože cena obou komodit vzrostla. Nárůst ceny potravin byl v porovnání s růstem mezd nižší. Mzda vzrostla o přibližně 64 %, zatímco cena chleba o 50 % a cena mléka o 37 %.  
 
 
-*Otázka 3: Která kategorie potravin zdražuje nejpomaleji (je u ní nejnižší percentuální meziroční nárůst)?*
+### *Otázka 3: Která kategorie potravin zdražuje nejpomaleji (je u ní nejnižší percentuální meziroční nárůst)?*
 
 **Postup:** Pro každou kategorii potravin jsem spočítala průměr meziročních procentuálních změn ceny přes celé období 2006–2018.
 
@@ -123,9 +123,7 @@ Tabulku jsem vytvořila spojením tabulek `economies` a `countries` (filtr `cont
 
 **Závěr:** U obou výsledných kategorií jsem dále zkoumala směr vývoje cen v jednotlivých letech. Z mého pohledu není možné striktně hovořit o trendu zdražování/zlevňování. Ve sledovaném období jsou ceny rozkolísané oběma směry což ovlivňuje průměrnou hodnotu. Výsledné kategorie jsou dle mého názoru výstupem čistě matematickým. Pro přesnější výsledek by bylo vhodné porovnávat trend v čase.
 
-# Neco napis 1
-## Neco napis 2
-### Otázka 4: Existuje rok, ve kterém byl meziroční nárůst cen potravin výrazně vyšší než růst mezd (větší než 10 %)?
+### *Otázka 4: Existuje rok, ve kterém byl meziroční nárůst cen potravin výrazně vyšší než růst mezd (větší než 10 %)?*
 
 **Postup:** Vzhledem k tomu, že jsem v průběhu práce narazila na skutečnost, že si danou otázku umím vyložit více způsoby, spočítala jsem dvě varianty:
 

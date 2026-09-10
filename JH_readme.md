@@ -1,6 +1,6 @@
 # Dostupnost základních potravin ve vztahu ke mzdám v ČR
 
-Projekt zpracovaný pro analytické oddělení – SQL analýza dat o mzdách, cenách potravin a makroekonomických ukazatelích.
+Projekt zpracovaný pro tiskové oddělení – SQL analýza dat o mzdách, cenách potravin a makroekonomických ukazatelích.
 
 
 ## 1. Úvod a cíl projektu

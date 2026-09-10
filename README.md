@@ -93,6 +93,7 @@ Tabulku jsem vytvořila spojením tabulek `economies` a `countries` (filtr `cont
 **Postup:** Pro každé odvětví jsem spočítala meziroční změnu mzdy za všechny dostupné roky (2006–2018); dále jsem zjišťovala, ve kterých odvětvích se vyskytl alespoň jeden rok s meziročním poklesem.
 
 **Výsledek:** Velice zjednodušeně lze říci, že ve všech odvětvích mzdy meziročně spíše rostly. Říkám spíše, neboť se ve většině odvětví vyskytl alespoň jeden rok, kdy mzdy naopak mírně poklesly oproti předchozímu období. Čistě meziroční růst jsem ve sledovaném období zaznamenala pouze u tří odvětví: Ostatní činnosti, Zdravotní a sociální péče, Zpracovatelský průmysl. Odvětví, ve kterém by mzda pouze klesala jsem naštěstí nezaznamenala žádné. 
+
 **Závěr:** Lze říci, že mzdy ve všech odvětvích v průběhu let rostou. Výkyvy v určitých letech, kdy mzdy naopak meziročně klesly by bylo zajímavé prozkoumat z širšího pohledu - co se ten rok u nás/ve světě dělo (hospodářská krize, válka, volby, ....). 
 
 

@@ -96,6 +96,18 @@ Tabulku jsem vytvořila spojením tabulek `economies` a `countries` (filtr `cont
 
 **Závěr:** Lze říci, že mzdy ve všech odvětvích v průběhu let rostou. Výkyvy v určitých letech, kdy mzdy naopak meziročně klesly by bylo zajímavé prozkoumat z širšího pohledu - co se ten rok u nás/ve světě dělo (hospodářská krize, válka, volby, ....). 
 
+*Otázka 2: Kolik je možné si koupit litrů mléka a kilogramů chleba za první a poslední srovnatelné období v dostupných datech cen a mezd?*
+
+**Postup:** Porovnávala jsem roky 2006 a 2018, které byly společné pro ceny i mzdy jako krajní hodnoty. Celostátní průměrnou mzdu (kategorie „Celá ekonomika“) jsem vydělila cenou chleba (Chléb konzumní kmínový) a cenou mléka (Mléko polotučné pasterované) za daný rok.
+
+**Výsledek:**
+| Rok | Mzda (Kč) | Cena chleba (Kč) | Cena mléka (Kč) | Kg chleba za mzdu | L mléka za mzdu |
+|---|---|---|---|---|---|
+| 2006 | 19536| 16,12 | 14,44 | 1211,66 | 1353,10 |
+| 2018 | 32043 | 24,24 | 19,82 | 1322,00 | 1616,77 |
+
+**Závěr:** Z tabulky je zřejmé, že v roce 2018 jsme si mohli koupit o 110,34 kg více chleba (přibližně o 9 %) a o 263,67 l více mléka (přibližně o 19 %) než v roce 2006, přestože cena obou komodit vzrostla. Nárůst ceny potravin byl v porovnání s růstem mezd nižší. Mzda vzrostla o přibližně 64 %, zatímco cena chleba o 50 % a cena mléka o 37 %.  
 
 
 
+Mz

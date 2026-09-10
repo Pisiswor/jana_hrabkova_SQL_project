@@ -88,6 +88,7 @@ Tabulku jsem vytvořila spojením tabulek `economies` a `countries` (filtr `cont
 
 *Poznámka:* Meziroční procentuální změny jsem se snažila ve všech otázkách počítat pomocí okenní funkce `LAG()`, vzorcem `(aktuální − předchozí) / předchozí × 100`. Dělení nulou jsem ošetřila pomocí `NULLIF`.
 
+
 *Otázka 1: Rostou v průběhu let mzdy ve všech odvětvích, nebo v některých klesají?*
 
 **Postup:** Pro každé odvětví jsem spočítala meziroční změnu mzdy za všechny dostupné roky (2006–2018); dále jsem zjišťovala, ve kterých odvětvích se vyskytl alespoň jeden rok s meziročním poklesem.
@@ -95,6 +96,7 @@ Tabulku jsem vytvořila spojením tabulek `economies` a `countries` (filtr `cont
 **Výsledek:** Velice zjednodušeně lze říci, že ve všech odvětvích mzdy meziročně spíše rostly. Říkám spíše, neboť se ve většině odvětví vyskytl alespoň jeden rok, kdy mzdy naopak mírně poklesly oproti předchozímu období. Čistě meziroční růst jsem ve sledovaném období zaznamenala pouze u tří odvětví: Ostatní činnosti, Zdravotní a sociální péče, Zpracovatelský průmysl. Odvětví, ve kterém by mzda pouze klesala jsem naštěstí nezaznamenala žádné. 
 
 **Závěr:** Lze říci, že mzdy ve všech odvětvích v průběhu let rostou. Výkyvy v určitých letech, kdy mzdy naopak meziročně klesly by bylo zajímavé prozkoumat z širšího pohledu - co se ten rok u nás/ve světě dělo (hospodářská krize, válka, volby, ....). 
+
 
 *Otázka 2: Kolik je možné si koupit litrů mléka a kilogramů chleba za první a poslední srovnatelné období v dostupných datech cen a mezd?*
 

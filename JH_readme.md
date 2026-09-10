@@ -128,14 +128,13 @@ Tabulku jsem vytvořila spojením tabulek `economies` a `countries` (filtr `cont
 
 **Postup:** Vzhledem k tomu, že jsem v průběhu práce narazila na skutečnost, že si danou otázku umím vyložit více způsoby, spočítala jsem dvě varianty:
 
-- **Varianta A: absolutní rozdíl v procentních bodech:** `průměrná meziroční % změna cen − meziroční % změna mzdy > 10`
-- **Varianta B: relativní poměr:** `průměrná meziroční % změna cen > meziroční % změna mzdy × 1,10`
+- **Varianta A -** absolutní rozdíl v procentních bodech: `průměrná meziroční % změna cen − meziroční % změna mzdy > 10`
+- **Varianta B -** relativní poměr: `průměrná meziroční % změna cen > meziroční % změna mzdy × 1,10`
 
 **Výsledek**
 
-– Varianta A: V žádném roce 2006–2018 rozdíl nepřesáhl 10 procentních bodů. Nejblíže byl rok 2007 (ceny +9,26 %, mzdy +7,22 %, rozdíl cca 2 p. b.).
-
-– Varianta B: Podmínku splnily roky 2007, 2008, 2011, 2012, 2013.
+- Varianta A: V žádném roce 2006–2018 rozdíl nepřesáhl 10 procentních bodů. Nejblíže byl rok 2007 (ceny +9,26 %, mzdy +7,22 %, rozdíl cca 2 p. b.).
+- Varianta B: Podmínku splnily roky 2007, 2008, 2011, 2012, 2013.
 
 **Poznámka k roku 2013:** V tomto roce mzdy meziročně mírně klesly (−0,13 %), zatímco ceny potravin vzrostly o 6,01 %. Vzhledem k tomu, že násobení záporné hodnoty koeficientem 1,10 podmínku Varianty B splní i při relativně mírném růstu cen, interpretovala bych tento rok s touto výhradou (v absolutním vyjádření – Variantě A – činí rozdíl 6,14 p. b., tedy pod stanovenou hranicí).
 

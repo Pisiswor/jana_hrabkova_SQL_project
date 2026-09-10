@@ -124,7 +124,7 @@ Tabulku jsem vytvořila spojením tabulek `economies` a `countries` (filtr `cont
 **Závěr:** U obou výsledných kategorií jsem dále zkoumala směr vývoje cen v jednotlivých letech. Z mého pohledu není možné striktně hovořit o trendu zdražování/zlevňování. Ve sledovaném období jsou ceny rozkolísané oběma směry což ovlivňuje průměrnou hodnotu. Výsledné kategorie jsou dle mého názoru výstupem čistě matematickým. Pro přesnější výsledek by bylo vhodné porovnávat trend v čase.
 
 
-*Otázka 4: Existuje rok, ve kterém byl meziroční nárůst cen potravin výrazně vyšší než růst mezd (větší než 10 %)?
+*Otázka 4: Existuje rok, ve kterém byl meziroční nárůst cen potravin výrazně vyšší než růst mezd (větší než 10 %)?*
 
 **Postup:** Vzhledem k tomu, že jsem v průběhu práce narazila na skutečnost, že si danou otázku umím vyložit více způsoby, spočítala jsem dvě varianty:
 

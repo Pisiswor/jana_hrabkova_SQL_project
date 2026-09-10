@@ -160,4 +160,31 @@ Tabulku jsem vytvořila spojením tabulek `economies` a `countries` (filtr `cont
 
 **Poznámka:** Při analýze vycházím pouze ze 12–13 ročních pozorování, což je pro spolehlivý statistický závěr málo. Korelační koeficienty je třeba chápat jako orientační náznak, nikoli jako průkazný důkaz příčinné souvislosti.
 
+
+## 5. Shrnutí pro tiskové oddělení
+
+[DOPLNIT – 3–5 vět shrnujících nejdůležitější zjištění napříč všemi otázkami, srozumitelně pro laickou veřejnost]
+
+
+## 6. Poznámky k datům a omezením
+
+- Analýza pokrývá pouze období 2006–2018 (průnik dostupnosti dat o mzdách a cenách potravin za ČR); mzdy jsou dostupné za roky 2000–2021, ceny potravin za ČR celkem pouze 2006–2018.
+- Ceny potravin jsou dostupné i po krajích, ale pro srovnatelnost s celostátními mzdami jsem použila pouze celostátní hodnoty.
+- U mezd jsem zvolila přepočtený počet zaměstnanců (`calculation_code = 200`) - přesnější pohled na průměrné mzdy (není ovlivněn rozdílnou výši úvazku); volba fyzického počtu by mohla dát mírně odlišné výsledky.
+- U otázky 3 a 4 by bylo vhodné "doptání se" co je skutečným požadavkem. Každopádně tyto otázky ukazují, že volba způsobu výpočtu (průměr meziročních změn vs. změna průměru; absolutní rozdíl vs. relativní poměr) může ovlivnit výsledný závěr. Zde jsem se nedoptávala, pokusila jsem se vytvořit podklad pro obě varianty "pohledu". Možná i bez doptání je vhodné na dva odlišné pohledy upozornit a v úvahu brát rovnou obě varianty.
+- Do finálních tabulek jsem použila pouze slovní popisy sloupců, je to čitelnější a úspornější. Nicméně v budoucnu bych postupovala spíše cestou "pracovní tabulka" - obsahuje číselné kódy a "výstupní tabulka" - obsahuje popisné hodnoty.
+
+
+## 7. Obsah repozitáře
+
+- `0_Úvodní_zjišťování.sql`: dotazy a poznámky k jednotlivým doporučeným tabulkám
+- `Primary_tab_final.sql`: vytvoření primární finální tabulky `t_jana_hrabkova_project_sql_primary_final`
+- `Secondary_tab_final.sql`: vytvoření sekundární finální tabulky `t_jana_hrabkova_project_sql_secondary_final`
+- `Otazka_1.sql` - `Otazka_5.sql`: SQL dotazy patřící ke konkrétní výzkumné otázce; součástí skriptu je vytvoření případného view
+- `JH_readme.md` – tento dokument
+
+[DOPLNIT – uprav podle skutečných názvů souborů, které do repozitáře nahraješ]
+
+
+
 **Závěr:** Data naznačují mírnou až středně silnou souvislost mezi HDP a mzdami (silnější s ročním zpožděním) a slabší, méně jednoznačnou souvislost mezi HDP a cenami potravin (silnější bez zpoždění). Vzhledem k malému vzorku dat doporučujeme závěr prezentovat s touto výhradou.

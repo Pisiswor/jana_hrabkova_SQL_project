@@ -123,6 +123,7 @@ Tabulku jsem vytvořila spojením tabulek `economies` a `countries` (filtr `cont
 
 **Závěr:** U obou výsledných kategorií jsem dále zkoumala směr vývoje cen v jednotlivých letech. Z mého pohledu není možné striktně hovořit o trendu zdražování/zlevňování. Ve sledovaném období jsou ceny rozkolísané oběma směry což ovlivňuje průměrnou hodnotu. Výsledné kategorie jsou dle mého názoru výstupem čistě matematickým. Pro přesnější výsledek by bylo vhodné porovnávat trend v čase.
 
+
 ### *Otázka 4: Existuje rok, ve kterém byl meziroční nárůst cen potravin výrazně vyšší než růst mezd (větší než 10 %)?*
 
 **Postup:** Vzhledem k tomu, že jsem v průběhu práce narazila na skutečnost, že si danou otázku umím vyložit více způsoby, spočítala jsem dvě varianty:
@@ -139,3 +140,22 @@ Tabulku jsem vytvořila spojením tabulek `economies` a `countries` (filtr `cont
 **Závěr:** Odpověď na otázku závisí na zvoleném postupu. Při striktním výkladu „o 10 procentních bodů vyšší“ (Varianta A) hypotéza neplatí pro žádný rok sledovaného období. Při výkladu „o 10 % relativně vyšší“ (Varianta B) hypotéza platí pro roky 2007, 2008, 2011, 2012 a s výhradou 2013.
 
 **Poznámka ke skriptu:** Ve skriptu pro otázku 4 jsem si na konci zkusila provést výpočet přes CASE. Výsledek je ve své podstatě stejný, jen vypočtená čísla se mírně liší. Dle mého by toto mohlo být způsobeno pořadím agregace. 
+
+
+### *Otázka č. 5: Má výška HDP vliv na změny ve mzdách a cenách potravin? Neboli, pokud HDP vzroste výrazněji v jednom roce, projeví se to na cenách potravin či mzdách ve stejném nebo následujícím roce výraznějším růstem?*
+
+**Postup:** Spočítala jsem meziroční % změnu HDP ČR (`LAG` na datech ze sekundární tabulky), a porovnala jsem ji s meziroční % změnou mezd a cen potravin. Výpočet, resp. porovnání jsem provedla jednak ve stejném roce, jednak s ročním zpožděním (HDP rok X vs. mzdy/ceny rok X+1). Sílu vztahu jsem zkusila ověřit pomocí funkce korelace (`CORR`) - tuším, že by se mělo jednat o Pearsonův korelační koeficient.
+
+**Výsledek:**
+| Vztah | Stejný rok | Následující rok |
+|---|---|---|
+| HDP → mzdy | 0,49 | 0,70 |
+| HDP → ceny potravin | 0,43 | 0,05 |
+
+**Interpretace:**
+- Vztah mezi růstem HDP a růstem mezd je silnější s ročním zpožděním – naznačuje to, že se vývoj HDP promítá do mezd spíše s odstupem jednoho roku (např. v důsledku každoročního přehodnocování mezd na základě předchozích výsledků).
+- Vztah mezi HDP a cenami potravin je naopak silnější ve stejném roce; s ročním zpožděním prakticky mizí.
+
+**Metodická výhrada:** Analýza vychází z pouhých 12–13 ročních pozorování, což je pro spolehlivý statistický závěr velmi málo. Korelační koeficienty je třeba chápat jako orientační náznak, nikoli jako průkazný důkaz příčinné souvislosti.
+
+**Závěr:** Data naznačují mírnou až středně silnou souvislost mezi HDP a mzdami (silnější s ročním zpožděním) a slabší, méně jednoznačnou souvislost mezi HDP a cenami potravin (silnější bez zpoždění). Vzhledem k malému vzorku dat doporučujeme závěr prezentovat s touto výhradou.

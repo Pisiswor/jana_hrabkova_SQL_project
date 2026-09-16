@@ -26,19 +26,19 @@ SELECT * FROM v_Wage_diff;
 -- Existují kategorie, kde mzdy pouze rostou (ano, jsou celkem 3)
 SELECT 
 	category,
-	count (*) FILTER (WHERE Wage_diff < 0) AS Wage_decreased,
-	count (*) FILTER (WHERE Wage_diff > 0) AS Wage_increased
+	COUNT (*) FILTER (WHERE Wage_diff < 0) AS Wage_decreased,
+	COUNT (*) FILTER (WHERE Wage_diff > 0) AS Wage_increased
 FROM v_Wage_diff
 GROUP BY category
-Having count (*) FILTER (WHERE Wage_diff < 0) = 0
+HAVING COUNT (*) FILTER (WHERE Wage_diff < 0) = 0
 ORDER BY category;
 
 -- Existují kategorie, kde mzdy pouze klesají (ne)
 SELECT 
 	category,
-	count (*) FILTER (WHERE Wage_diff < 0) AS Wage_decreased,
-	count (*) FILTER (WHERE Wage_diff > 0) AS Wage_increased
+	COUNT (*) FILTER (WHERE Wage_diff < 0) AS Wage_decreased,
+	COUNT (*) FILTER (WHERE Wage_diff > 0) AS Wage_increased
 FROM v_Wage_diff
 GROUP BY category
-Having count (*) FILTER (WHERE Wage_diff > 0) = 0
+HAVING COUNT (*) FILTER (WHERE Wage_diff > 0) = 0
 ORDER BY category;
